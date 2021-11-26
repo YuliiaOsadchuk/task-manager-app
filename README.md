@@ -2,19 +2,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-To launch the app run `npm i`.
+To install dependencies run
 
-To run the app in the development mode run `npm run start`
+```
+npm install
+```
+
+To run the app in the development mode run 
+```
+npm run start
+```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 # Directory structure
 
 ```
 task-manager-app/
-   README.md
-   node_modules/
-   package.json
-    tsconfig.json
    public/
       index.html
     src/
