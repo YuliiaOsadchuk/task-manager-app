@@ -6,12 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ```
 task-manager-app/
-   README.md
-   node_modules/
-   package.json
 	tsconfig.json
-   public/
-      index.html
     src/
       app.tsx
       index.tsx
