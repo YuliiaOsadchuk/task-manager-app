@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react'
 
-const App: React.FC = () => <h1>Task Manager</h1>;
+const App: React.FC = () => <h1>Task Manager</h1>
 
-export default App;
+export default App
