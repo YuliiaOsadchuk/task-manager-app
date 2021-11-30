@@ -25,11 +25,22 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prettier": "prettier --check \"src/**/*.{tsx, ts}\"",
+    "prettier:fix": "prettier --write \"src/**/*.{tsx, ts}\"",
+    "lint": "eslint ./src --ext .ts,.tsx",
+    "lint:fix": "npm run lint --fix",
+    "pre-commit-check": "npm run lint:staged"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npm run lint:fix",
+      "npm run prettier:fix"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "lint-staged"
     }
   },
   "browserslist": {
@@ -55,6 +66,7 @@
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.27.1",
     "eslint-plugin-react-hooks": "4.3.0",
+    "husky": "^7.0.0",
     "lint-staged": "^12.1.2",
     "prettier": "^2.5.0",
     "pretty-quick": "^3.1.2"
