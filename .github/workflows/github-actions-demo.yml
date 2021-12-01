@@ -1,9 +1,12 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  check:
+    name: Running EsLint and prettier
+#   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v1
     - name: Run lint
       run: npm run lint 
     - name: Run prettier
