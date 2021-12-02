@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    name: Running Units Tests
+    name: Running linter and prettier
     runs-on: ubuntu-latest
 
     steps:
@@ -15,6 +15,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Install
+      run: npm install
     - name: lint
       run: npm run lint
     - name: prettier
