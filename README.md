@@ -8,7 +8,8 @@ To install dependencies run
 npm install
 ```
 
-To run the app in the development mode run 
+To run the app in the development mode run
+
 ```
 npm run start
 ```
@@ -113,3 +114,28 @@ export default validationSchema;
 ```
 
 For more details follow https://stackworx.github.io/formik-mui/
+
+## Styles
+
+Use mui library https://mui.com/
+Example:
+
+```
+  <Button variant="outlined" href="#outlined-buttons">
+  Link
+</Button>
+```
+
+For overriding mui-components use styled-components.
+Example:
+
+```
+import styled from "styled-components";
+import { Button } from "@mui/material";
+const SignInButton = styled(Button)({
+  marginTop: "20px",
+  marginBottom: "10px",
+});
+```
+
+Follow for details https://styled-components.com/
