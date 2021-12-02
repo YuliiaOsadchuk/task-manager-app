@@ -1,8 +1,7 @@
-name: Github Actions Example
+name: Build check
 
 on:
   pull_request:
-  push:
 
 jobs:
   test:
@@ -10,14 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install
-      run: npm install
-    - name: lint
-      run: npm run lint
-    - name: prettier
-      run: npm run prettier
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install
+        run: npm install
+      - name: lint
+        run: npm run lint
+      - name: prettier
+        run: npm run prettier
+      - name: Build
+        run: npm run build
