@@ -1,14 +1,12 @@
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import React from 'react';
 
-const App: React.FC = () => {
-  const theme = createTheme();
+import { theme } from './theme';
 
-  return (
-    <ThemeProvider theme={theme}>
-      <h1>Task Manager</h1>
-    </ThemeProvider>
-  );
-};
+const App: React.FC = () => (
+  <ThemeProvider theme={theme}>
+    <h1>Task Manager</h1>
+  </ThemeProvider>
+);
 
 export default App;
