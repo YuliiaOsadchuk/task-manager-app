@@ -1,10 +1,10 @@
 import { ThemeProvider } from '@mui/material/styles';
 import React from 'react';
 
-import { theme } from './theme';
+import { THEME } from './theme';
 
 const App: React.FC = () => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={THEME}>
     <h1>Task Manager</h1>
   </ThemeProvider>
 );
