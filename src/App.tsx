@@ -1,12 +1,15 @@
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
+
+import Router from './Router';
 
 const App: React.FC = () => {
   const theme = createTheme();
 
   return (
     <ThemeProvider theme={theme}>
-      <h1>Task Manager</h1>
+      <CssBaseline />
+      <Router />
     </ThemeProvider>
   );
 };
