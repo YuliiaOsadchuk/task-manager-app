@@ -1,13 +1,14 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Avatar, Checkbox, Container, FormControlLabel, Typography } from '@mui/material';
+import axios from 'axios';
 import { Field, Formik } from 'formik';
 import { TextField } from 'formik-mui';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
-import { User } from '../../../interfaces';
-import users from '../../users.json';
+import { PATHS } from '../../enums';
+import { User } from '../../interfaces';
 import Copyright from '../copyrigth/Copyrigth';
 import { FlexColumn, FlexCenter, SignInButton } from './Signin.styles';
 import validationSchema from './validationSchema';
@@ -15,7 +16,20 @@ import validationSchema from './validationSchema';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Signin: React.FC = () => {
+  const [users, setUsers] = useState<User[]>([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get<User[]>(' http://localhost:3001/users')
+      .then((response) => {
+        setUsers(response.data);
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.log(err);
+      });
+  }, []);
 
   const initialValues: User = {
     username: '',
@@ -34,7 +48,7 @@ const Signin: React.FC = () => {
 
   const handleSubmitForm = (values: User): void => {
     if (isAuthenticated(values, users)) {
-      navigate('/home');
+      navigate(PATHS.HOME);
     } else {
       notifyError();
     }

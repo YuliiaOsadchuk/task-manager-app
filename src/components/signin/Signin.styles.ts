@@ -1,7 +1,7 @@
-import { Box, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import styled from 'styled-components';
 
-export const FlexColumn = styled(Box)({
+export const FlexColumn = styled.div({
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
