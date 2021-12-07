@@ -121,9 +121,7 @@ Use mui library https://mui.com/
 Example:
 
 ```
-  <Button variant="outlined" href="#outlined-buttons">
-  Link
-</Button>
+ <Button variant="text">Text</Button>
 ```
 
 For overriding mui-components use styled-components.
