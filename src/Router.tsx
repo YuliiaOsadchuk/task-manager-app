@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Signin from './components/signin/signin';
 import { APP_ROUTES } from './enums';
-import Home from './pages/home/home';
+
+const Signin = lazy(() => import('./components/signin/signin'));
+const Home = lazy(() => import('./pages/home/home'));
 
 const Router: React.FC = () => (
   <BrowserRouter>
-    <Routes>
-      <Route path={APP_ROUTES.SIGNIN} element={<Signin />} />
-      <Route path={APP_ROUTES.HOME} element={<Home />} />
-    </Routes>
+    <Suspense fallback={<div>Download...</div>}>
+      <Routes>
+        <Route path={APP_ROUTES.SIGNIN} element={<Signin />} />
+        <Route path={APP_ROUTES.HOME} element={<Home />} />
+      </Routes>
+    </Suspense>
   </BrowserRouter>
 );
 
