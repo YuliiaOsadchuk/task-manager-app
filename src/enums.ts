@@ -1,4 +1,4 @@
-export enum PATHS {
+export enum APP_ROUTES {
   HOME = '/home',
   SIGNIN = '/',
 }
