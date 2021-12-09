@@ -3,6 +3,6 @@ import React, { lazy } from 'react';
 import { withSuspense } from '../../with-suspense';
 import Progress from '../progress/progress';
 
-const SigninLazy = lazy(() => import('./sign-in'));
+const HomeLazy = lazy(() => import('./home'));
 
-export default withSuspense(SigninLazy, <Progress />);
+export default withSuspense(HomeLazy, <Progress />);
