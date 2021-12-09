@@ -2,7 +2,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import Router from './rrouter';
+import Router from './router';
 import store from './store/store';
 import { THEME } from './theme';
 
