@@ -6,7 +6,6 @@ import { User } from '../interfaces';
 import { RootState } from './store';
 
 interface UsersState {
-  users?: User[];
   loading?: boolean;
 }
 
@@ -45,3 +44,5 @@ const usersSlices = createSlice({
 export default usersSlices;
 
 export const usersSelector = usersAdapter.getSelectors<RootState>((state) => state.users);
+
+export const users = usersAdapter.getSelectors();
