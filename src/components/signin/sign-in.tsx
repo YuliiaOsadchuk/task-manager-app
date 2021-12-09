@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { APP_ROUTES } from '../../enums';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { User } from '../../interfaces';
-import { loadUsers } from '../../store/slices';
+import { loadUsers, usersSelector } from '../../store/slices';
 import Copyright from '../copyrigth/copyrigth';
 import { FlexColumn, FlexCenter, SignInButton } from './sign-in.styles';
 import validationSchema from './validationSchema';
@@ -18,13 +18,14 @@ const Signin: React.FC = () => {
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
-  const users: User[] = useAppSelector((state) => state.users.users);
+  const users: User[] = useAppSelector(usersSelector.selectAll);
 
   useEffect(() => {
     dispatch(loadUsers());
   }, [dispatch]);
 
   const initialValues: User = {
+    id: '',
     username: '',
     password: '',
   };

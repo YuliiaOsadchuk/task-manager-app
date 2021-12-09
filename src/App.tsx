@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import Router from './Router';
-import store from './store/store';
+import { store } from './store/store';
 import { THEME } from './theme';
 
 const App: React.FC = () => (
