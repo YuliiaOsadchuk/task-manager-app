@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { User } from '../../interfaces';
 import { loadUsers } from '../../store/slices';
 import Copyright from '../copyrigth/copyrigth';
-import { FlexColumn, FlexCenter, SignInButton } from './signin.styles';
+import { FlexColumn, FlexCenter, SignInButton } from './sign-in.styles';
 import validationSchema from './validationSchema';
 
 const Signin: React.FC = () => {
