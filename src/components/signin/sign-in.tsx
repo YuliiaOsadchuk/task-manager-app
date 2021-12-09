@@ -2,7 +2,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Avatar, Checkbox, Container, FormControlLabel, Typography } from '@mui/material';
 import { Field, Formik } from 'formik';
 import { TextField } from 'formik-mui';
-import React, { useEffect } from 'react';
+import React, { useEffect, ReactText, ReactElement } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -14,7 +14,7 @@ import Copyright from '../copyrigth/copyrigth';
 import { FlexColumn, FlexCenter, SignInButton } from './sign-in.styles';
 import validationSchema from './validationSchema';
 
-const Signin: React.FC = () => {
+const Signin = (): ReactElement => {
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -38,7 +38,7 @@ const Signin: React.FC = () => {
     return false;
   };
 
-  const notifyError = (): React.ReactText => toast.error('User is not authenticated');
+  const notifyError = (): ReactText => toast.error('User is not authenticated');
 
   const handleSubmitForm = (values: User): void => {
     if (isAuthenticated(values, users)) {
