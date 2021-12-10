@@ -38,11 +38,12 @@
     "yup": "0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run start:ui\" \"npm run start:server\"",
+    "start:ui": "react-scripts start",
+    "start:server": "json-server -w server/db.json -p 3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server -w server/db.json -p 3001",
     "prepare": "husky install",
     "prettier": "prettier --check \"src/**/*.{tsx, ts}\"",
     "prettier:fix": "prettier --write \"src/**/*.{tsx, ts}\"",

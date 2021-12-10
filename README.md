@@ -11,6 +11,18 @@ npm install
 To run the app in the development mode run
 
 ```
+npm run start:ui
+```
+
+To run the server run
+
+```
+npm run start:server
+```
+
+To run the app in the development mode and start server run
+
+```
 npm run start
 ```
 
@@ -20,8 +32,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ```
 task-manager-app/
-   public/
-      index.html
     src/
       app.tsx
       index.tsx

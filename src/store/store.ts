@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 
-import usersSlices from './slices';
+import usersSlices from './users.slices';
 
 export const store = configureStore({
   reducer: {

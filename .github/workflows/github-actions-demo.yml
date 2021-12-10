@@ -2,6 +2,8 @@ name: Build check
 
 on:
   pull_request:
+    branches:
+      - master
 
 jobs:
   test:

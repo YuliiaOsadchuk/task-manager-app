@@ -9,8 +9,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import { APP_ROUTES } from '../../enums';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { User } from '../../interfaces';
-import { loadUsers, usersSelector } from '../../store/slices';
-import Copyright from '../copyrigth/copyrigth';
+import { loadUsers, usersSelector } from '../../store/users.slices';
+import Copyright from '../../components/copyrigth/copyrigth';
 import { FlexColumn, FlexCenter, SignInButton } from './sign-in.styles';
 import validationSchema from './validationSchema';
 
