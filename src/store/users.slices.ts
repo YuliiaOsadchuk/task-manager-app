@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction, createEntityAdapter } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 import { BASE_URL } from '../constants';
 import { User } from '../interfaces';
@@ -17,8 +18,13 @@ const initialState = {
 const usersAdapter = createEntityAdapter<User>();
 
 export const loadUsers = createAsyncThunk('users/loadUsers', async (): Promise<User[]> => {
-  const { data } = await axios.get<User[]>(`${BASE_URL}/users`);
-  return data;
+  try {
+    const { data } = await axios.get<User[]>(`${BASE_URL}/users`);
+    return data;
+  } catch (err) {
+    toast.error('Loading failed');
+    throw err;
+  }
 });
 
 const usersSlices = createSlice({

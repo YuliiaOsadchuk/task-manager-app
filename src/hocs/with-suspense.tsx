@@ -1,6 +1,6 @@
 import React, { Suspense, FC, LazyExoticComponent, ReactElement, ComponentType } from 'react';
 
-import Progress from './components/progress/progress';
+import Progress from '../components/progress/progress';
 
 interface RouteWithSuspenseProps {
   Component?: LazyExoticComponent<ComponentType>;

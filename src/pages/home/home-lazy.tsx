@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-import { withSuspense } from '../../with-suspense';
+import { withSuspense } from '../../hocs/with-suspense';
 
 const HomeLazy = lazy(() => import('./home'));
 
