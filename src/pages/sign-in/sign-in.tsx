@@ -2,10 +2,11 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Avatar, Checkbox, Container, FormControlLabel, Typography } from '@mui/material';
 import { Field, Formik } from 'formik';
 import { TextField } from 'formik-mui';
-import React, { useEffect, ReactText, ReactElement } from 'react';
+import React, { useEffect, ReactText, ReactElement, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
+import { authContext } from '../../auth/auth-context';
 import Copyright from '../../components/copyrigth/copyrigth';
 import { APP_ROUTES } from '../../enums';
 import { useAppDispatch, useAppSelector } from '../../hooks';
@@ -15,6 +16,8 @@ import { FlexColumn, FlexCenter, SignInButton } from './sign-in.styles';
 import validationSchema from './validationSchema';
 
 const Signin = (): ReactElement => {
+  const auth = useContext(authContext);
+
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -42,8 +45,9 @@ const Signin = (): ReactElement => {
 
   const handleSubmitForm = (values: User): void => {
     if (isAuthenticated(values, users)) {
-      navigate(APP_ROUTES.HOME);
+      auth?.signin(() => navigate(APP_ROUTES.HOME));
     } else {
+      // auth?.signout(() => navigate(APP_ROUTES.SIGNIN));
       notifyError();
     }
   };
