@@ -2,30 +2,23 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Avatar, Checkbox, Container, FormControlLabel, Typography } from '@mui/material';
 import { Field, Formik } from 'formik';
 import { TextField } from 'formik-mui';
-import React, { useEffect, ReactText, ReactElement, useContext } from 'react';
+import React, { ReactElement, ReactText } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
-import { authContext } from '../../auth/auth-context';
 import Copyright from '../../components/copyrigth/copyrigth';
 import { APP_ROUTES } from '../../enums';
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppSelector } from '../../hooks';
 import { User } from '../../interfaces';
-import { loadUsers, usersSelector } from '../../store/users.slices';
+import { setUserAuthenticated } from '../../session-storage-utils';
+import { usersSelector } from '../../store/users.slices';
 import { FlexColumn, FlexCenter, SignInButton } from './sign-in.styles';
 import validationSchema from './validationSchema';
 
 const Signin = (): ReactElement => {
-  const auth = useContext(authContext);
-
   const navigate = useNavigate();
 
-  const dispatch = useAppDispatch();
   const users: User[] = useAppSelector(usersSelector.selectAll);
-
-  useEffect(() => {
-    dispatch(loadUsers());
-  }, [dispatch]);
 
   const initialValues: User = {
     id: '',
@@ -45,9 +38,9 @@ const Signin = (): ReactElement => {
 
   const handleSubmitForm = (values: User): void => {
     if (isAuthenticated(values, users)) {
-      auth?.signin(() => navigate(APP_ROUTES.HOME));
+      setUserAuthenticated(true);
+      navigate(APP_ROUTES.HOME);
     } else {
-      // auth?.signout(() => navigate(APP_ROUTES.SIGNIN));
       notifyError();
     }
   };
