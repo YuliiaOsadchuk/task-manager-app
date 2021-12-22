@@ -10,8 +10,8 @@ import Copyright from '../../components/copyrigth/copyrigth';
 import { APP_ROUTES } from '../../enums';
 import { useAppSelector } from '../../hooks';
 import { User } from '../../interfaces';
-import { setUserAuthenticated } from '../../session-storage-utils';
 import { usersSelector } from '../../store/users.slices';
+import UserAuth from '../../components/auth/user-auth';
 import { FlexColumn, FlexCenter, SignInButton } from './sign-in.styles';
 import validationSchema from './validationSchema';
 
@@ -26,6 +26,8 @@ const Signin = (): ReactElement => {
     password: '',
   };
 
+  const userAuth = new UserAuth();
+
   const isAuthenticated = (userFormData: User, usersData: User[]): boolean => {
     const foundUser = usersData.find((user) => user.username === userFormData.username);
     if (foundUser) {
@@ -38,7 +40,7 @@ const Signin = (): ReactElement => {
 
   const handleSubmitForm = (values: User): void => {
     if (isAuthenticated(values, users)) {
-      setUserAuthenticated(true);
+      userAuth.setUserAuthenticated(true);
       navigate(APP_ROUTES.HOME);
     } else {
       notifyError();
