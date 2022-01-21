@@ -110,7 +110,8 @@
     "no-loss-of-precision": "error",
     "no-nonoctal-decimal-escape": "error",
     "no-unsafe-optional-chaining": "error",
-    "no-useless-backreference": "error"
+    "no-useless-backreference": "error",
+    "class-methods-use-this": "warn"
   },
   "settings": {
     "import/resolver": {

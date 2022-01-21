@@ -6,12 +6,12 @@ import React, { ReactElement, ReactText } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
+import UserAuth from '../../components/auth/user-auth';
 import Copyright from '../../components/copyrigth/copyrigth';
 import { APP_ROUTES } from '../../enums';
 import { useAppSelector } from '../../hooks';
 import { User } from '../../interfaces';
 import { usersSelector } from '../../store/users.slices';
-import UserAuth from '../../components/auth/user-auth';
 import { FlexColumn, FlexCenter, SignInButton } from './sign-in.styles';
 import validationSchema from './validationSchema';
 
