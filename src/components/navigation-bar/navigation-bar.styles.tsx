@@ -23,6 +23,11 @@ export const TodayOutlinedIconNavBar = styled(TodayOutlinedIcon)`
 export const BoxNavBar = styled.div`
   width: 100%;
   height: 100vh;
-  max-width: 360px;
+  min-width: 300px;
+  border-radius: 8px;
   background-color: #fafafa;
+`;
+
+export const BoxButton = styled.div`
+  padding: 20px 20px 5px;
 `;
