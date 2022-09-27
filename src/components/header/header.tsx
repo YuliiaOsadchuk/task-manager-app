@@ -1,7 +1,6 @@
-import React, { ReactElement } from 'react';
-
-import { Button } from '@mui/material';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import { Button } from '@mui/material';
+import React, { ReactElement } from 'react';
 
 import { BoxButton, HeaderText, DateText, TextBox } from './header.styles';
 

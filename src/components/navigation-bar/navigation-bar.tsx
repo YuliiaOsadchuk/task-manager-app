@@ -2,6 +2,7 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import { Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import React, { ReactElement } from 'react';
 
+import { FlexColumn } from '../../global.styles';
 import {
   AllInboxOutlinedIconNavBar,
   DateRangeOutlinedIconNavBar,
@@ -10,7 +11,6 @@ import {
   BoxNavBar,
   BoxButton,
 } from './navigation-bar.styles';
-import { FlexColumn } from '../../global.styles';
 
 const NavigationBar = (): ReactElement => (
   <FlexColumn>
