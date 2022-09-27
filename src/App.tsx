@@ -1,18 +1,24 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import React from 'react';
-import { Provider } from 'react-redux';
+import React, { ReactElement, useEffect } from 'react';
 
+import { useAppDispatch } from './hooks';
 import Router from './router';
-import { store } from './store/store';
+import { loadUsers } from './store/users.slices';
 import { THEME } from './theme';
 
-const App: React.FC = () => (
-  <Provider store={store}>
+const App = (): ReactElement => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(loadUsers());
+  }, [dispatch]);
+
+  return (
     <ThemeProvider theme={THEME}>
       <CssBaseline />
       <Router />
     </ThemeProvider>
-  </Provider>
-);
+  );
+};
 
 export default App;
